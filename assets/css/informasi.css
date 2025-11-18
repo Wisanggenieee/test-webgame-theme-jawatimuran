@@ -187,6 +187,79 @@
     font-weight: 500;
 }
 
+/* ===== DOWNLOAD SECTION STYLES ===== */
+.download-section .content-box {
+    text-align: center;
+}
+
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.download-card {
+    background: var(--putih);
+    padding: 2rem;
+    border-radius: var(--radius-besar);
+    box-shadow: var(--shadow-lembut);
+    border: 2px solid var(--abu-sedang);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.download-card:hover {
+    border-color: var(--emas-jatim);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.download-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.download-card h3 {
+    color: var(--coklat-kayu);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.download-card p {
+    color: var(--abu-gelap);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.file-info {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.file-info span {
+    background: var(--abu-muda);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-kecil);
+    font-size: 0.85rem;
+    color: var(--abu-gelap);
+}
+
+.download-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.download-actions .btn {
+    width: 100%;
+    justify-content: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .informasi-container {
@@ -221,6 +294,22 @@
         flex-direction: column;
         text-align: center;
     }
+    
+    /* Download Section Responsive */
+    .download-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .download-card {
+        padding: 1.5rem;
+    }
+    
+    .file-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -242,5 +331,18 @@
     
     .section-icon {
         font-size: 2rem;
+    }
+    
+    /* Download Section Mobile */
+    .download-card {
+        padding: 1.2rem;
+    }
+    
+    .download-icon {
+        font-size: 2.5rem;
+    }
+    
+    .download-card h3 {
+        font-size: 1.1rem;
     }
 }

@@ -342,6 +342,8 @@ body::before {
 .main-content {
     margin-top: 80px;
     min-height: calc(100vh - 160px);
+    position: relative;
+    z-index: 1;
 }
 
 /* ===== HERO SECTION ===== */
@@ -354,10 +356,14 @@ body::before {
     gap: 4rem;
     align-items: center;
     min-height: 80vh;
+    position: relative;
+    z-index: 10;
 }
 
 .hero-content {
     padding-right: 2rem;
+    position: relative;
+    z-index: 10;
 }
 
 .hero-badge {
@@ -398,6 +404,8 @@ body::before {
     gap: 1rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 100;
 }
 
 .hero-stats {
@@ -428,6 +436,8 @@ body::before {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     min-height: 400px;
+    position: relative;
+    z-index: 10;
 }
 
 .hero-card {
@@ -437,13 +447,15 @@ body::before {
     box-shadow: var(--shadow-medium);
     position: relative;
     overflow: hidden;
-    transition: var(--transition-cepat);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 0;
     transform: translateY(30px);
     min-height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .hero-card.animate-in {
@@ -508,7 +520,7 @@ body::before {
 
 .card-content {
     position: relative;
-    z-index: 2;
+    z-index: 15;
     text-align: center;
 }
 
@@ -531,108 +543,93 @@ body::before {
     line-height: 1.4;
 }
 
-/* ===== RESPONSIVE FIXES ===== */
-@media (max-width: 968px) {
-    .hero-section {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 3rem;
-        padding: 3rem 2rem;
-    }
-    
-    .hero-content {
-        padding-right: 0;
-    }
-    
-    /* PERBAIKAN UTAMA: Reset grid layout untuk tablet */
-    .hero-visual {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        min-height: auto;
-    }
-    
-    .hero-card:nth-child(1) {
-        grid-column: 1 / 2;
-    }
+/* ===== CARD HOVER ANIMATIONS ===== */
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    /* PERBAIKAN UTAMA: Hero visual untuk mobile */
-    .hero-visual {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, auto);
-        gap: 1rem;
-        min-height: auto;
-    }
-    
-    .hero-card {
-        min-height: 140px;
-        padding: 1.5rem;
-        margin-bottom: 0;
-    }
-    
-    .hero-card:nth-child(1),
-    .hero-card:nth-child(2),
-    .hero-card:nth-child(3) {
-        grid-column: 1 / 2;
-    }
-    
-    .card-icon {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .hero-card h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    .hero-card p {
-        font-size: 0.8rem;
-    }
+.card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.15),
+        0 5px 15px rgba(245, 194, 125, 0.3);
 }
 
-@media (max-width: 480px) {
-    .hero-section {
-        padding: 2rem 1rem;
-        min-height: auto;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    /* Hero card mobile optimization */
-    .hero-card {
-        min-height: 120px;
-        padding: 1rem;
-    }
-    
-    .card-icon {
-        font-size: 1.8rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    .hero-card h3 {
-        font-size: 1rem;
-    }
-    
-    .hero-card p {
-        font-size: 0.75rem;
-    }
-    
-    /* Disable some animations on very small screens for performance */
-    .hero-card::after {
-        animation: none;
-    }
+/* Hero card hover effects */
+.hero-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        0 8px 25px rgba(245, 194, 125, 0.4);
+}
+
+/* Feature card hover effects */
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.15),
+        0 5px 15px rgba(139, 94, 42, 0.2);
+    border-color: var(--emas-jatim);
+}
+
+/* Culture badge hover effects */
+.culture-badge:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== FIX Z-INDEX ISSUES ===== */
+.hero-card,
+.feature-card,
+.culture-badge {
+    position: relative;
+    z-index: 10;
+}
+
+/* Pastikan link dalam card bisa diklik */
+.feature-card a,
+.hero-actions button {
+    position: relative;
+    z-index: 20;
+}
+
+/* ===== FIX BACKGROUND OVERLAY ISSUES ===== */
+body::before,
+.background-overlay,
+.floating-shapes,
+.grid-pattern,
+.particles {
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ===== BUTTON CLICKABLE FIX ===== */
+.btn {
+    position: relative;
+    z-index: 100;
+    pointer-events: auto;
+}
+
+.hero-actions {
+    position: relative;
+    z-index: 100;
+}
+
+/* ===== LINK FIXES ===== */
+.nav-link,
+.feature-card a,
+.btn {
+    pointer-events: auto;
+}
+
+/* Pastikan card content bisa diklik */
+.card-content {
+    position: relative;
+    z-index: 15;
 }
 
 /* ===== FEATURES SECTION ===== */
@@ -642,6 +639,7 @@ body::before {
     padding: 6rem 2rem;
     background: var(--putih);
     position: relative;
+    z-index: 10;
 }
 
 .features-section::before {
@@ -691,12 +689,14 @@ body::before {
     border-radius: var(--radius-besar);
     box-shadow: var(--shadow-lembut);
     text-align: center;
-    transition: var(--transition-cepat);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid var(--abu-sedang);
     opacity: 0;
     transform: translateY(30px);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .feature-card.animate-in {
@@ -786,6 +786,7 @@ body::before {
     color: var(--putih);
     padding: 6rem 2rem;
     position: relative;
+    z-index: 10;
 }
 
 .about-section::before {
@@ -862,9 +863,11 @@ body::before {
     border-radius: var(--radius-besar);
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: var(--transition-cepat);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 0;
     transform: translateX(30px);
+    cursor: pointer;
+    z-index: 10;
 }
 
 .culture-badge.animate-in {
@@ -921,6 +924,7 @@ body::before {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+    z-index: 100;
 }
 
 .btn::before {
@@ -976,6 +980,8 @@ body::before {
     background: var(--coklat-kayu);
     color: var(--putih);
     padding: 3rem 0 1rem;
+    position: relative;
+    z-index: 10;
 }
 
 .footer-content {
@@ -1090,16 +1096,37 @@ body::before {
     }
 }
 
+@keyframes shimmer {
+    0% {
+        transform: rotate(45deg) translateX(-100%);
+    }
+    100% {
+        transform: rotate(45deg) translateX(100%);
+    }
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 968px) {
     .hero-section {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 3rem;
+        padding: 3rem 2rem;
     }
     
     .hero-content {
         padding-right: 0;
+    }
+    
+    /* PERBAIKAN UTAMA: Reset grid layout untuk tablet */
+    .hero-visual {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        min-height: auto;
+    }
+    
+    .hero-card:nth-child(1) {
+        grid-column: 1 / 2;
     }
     
     .about-content {
@@ -1139,6 +1166,10 @@ body::before {
         font-size: 2.5rem;
     }
     
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
     .features-grid {
         grid-template-columns: 1fr;
     }
@@ -1153,6 +1184,40 @@ body::before {
     
     .footer-links {
         grid-template-columns: 1fr;
+    }
+    
+    /* PERBAIKAN UTAMA: Hero visual untuk mobile */
+    .hero-visual {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        gap: 1rem;
+        min-height: auto;
+    }
+    
+    .hero-card {
+        min-height: 140px;
+        padding: 1.5rem;
+        margin-bottom: 0;
+    }
+    
+    .hero-card:nth-child(1),
+    .hero-card:nth-child(2),
+    .hero-card:nth-child(3) {
+        grid-column: 1 / 2;
+    }
+    
+    .card-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .hero-card p {
+        font-size: 0.8rem;
     }
     
     /* Optimasi background overlay untuk mobile */
@@ -1173,6 +1238,7 @@ body::before {
     
     .hero-section {
         padding: 2rem 1rem;
+        min-height: auto;
     }
     
     .hero-title {
@@ -1206,8 +1272,32 @@ body::before {
         gap: 1rem;
     }
     
+    /* Hero card mobile optimization */
+    .hero-card {
+        min-height: 120px;
+        padding: 1rem;
+    }
+    
+    .card-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .hero-card h3 {
+        font-size: 1rem;
+    }
+    
+    .hero-card p {
+        font-size: 0.75rem;
+    }
+    
     /* Further optimization for small screens */
     .grid-pattern {
         background-size: 30px 30px;
+    }
+    
+    /* Disable some animations on very small screens for performance */
+    .hero-card::after {
+        animation: none;
     }
 }
