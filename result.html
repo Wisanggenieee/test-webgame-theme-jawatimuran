@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil | Seberapa Jatim Koe?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <main class="main-content">
+        <div class="result-container">
+            <div class="result-card">
+                <div class="result-header">
+                    <h1 class="result-title" id="resultTitle">Hasil Permainan</h1>
+                    <div class="score-circle">
+                        <span class="score-number" id="scoreNumber">0</span>
+                        <span class="score-total" id="scoreTotal">/0</span>
+                    </div>
+                </div>
+
+                <div class="result-body">
+                    <div class="result-message" id="resultMessage">
+                        <!-- Pesan hasil akan dimasukkan oleh JavaScript -->
+                    </div>
+
+                    <div class="result-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Jawaban Benar:</span>
+                            <span class="detail-value" id="correctAnswers">0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Soal:</span>
+                            <span class="detail-value" id="totalQuestions">0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Persentase:</span>
+                            <span class="detail-value" id="percentage">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="result-actions">
+                        <button id="playAgain" class="btn btn-primary">Main Lagi</button>
+                        <a href="index.html" class="btn btn-outline">Kembali ke Beranda</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+        // Tampilkan hasil permainan
+        document.addEventListener('DOMContentLoaded', function() {
+            const quizResult = getFromStorage('quizResult');
+            const gameResult = getFromStorage('gameResult');
+            
+            let result, gameType;
+            
+            if (quizResult) {
+                result = quizResult;
+                gameType = 'kuis';
+                document.getElementById('resultTitle').textContent = 'Hasil Kuis Jawa Timur';
+            } else if (gameResult) {
+                result = gameResult;
+                gameType = 'tebak gambar';
+                document.getElementById('resultTitle').textContent = 'Hasil Tebak Gambar';
+            } else {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            const score = result.score;
+            const total = result.totalQuestions || result.totalPictures;
+            const percentage = Math.round((score / total) * 100);
+            
+            // Update UI dengan hasil
+            document.getElementById('scoreNumber').textContent = score;
+            document.getElementById('scoreTotal').textContent = '/' + total;
+            document.getElementById('correctAnswers').textContent = score;
+            document.getElementById('totalQuestions').textContent = total;
+            document.getElementById('percentage').textContent = percentage + '%';
+            
+            // Tentukan pesan hasil berdasarkan skor
+            let message = '';
+            let messageClass = '';
+            
+            if (percentage <= 33) {
+                message = 'Waduhhh rek, kok ra ngerti Jatim blas iki?';
+                messageClass = 'result-poor';
+            } else if (percentage <= 66) {
+                message = 'Lumayan rek, separo-separo ngerti!';
+                messageClass = 'result-average';
+            } else {
+                message = 'Lah iki Arek Jatim Asli! Mantap pol!';
+                messageClass = 'result-excellent';
+            }
+            
+            const messageElement = document.getElementById('resultMessage');
+            messageElement.textContent = message;
+            messageElement.className = `result-message ${messageClass}`;
+            
+            // Setup tombol main lagi
+            document.getElementById('playAgain').addEventListener('click', function() {
+                if (gameType === 'kuis') {
+                    window.location.href = 'quiz.html';
+                } else {
+                    window.location.href = 'guesspicture.html';
+                }
+            });
+            
+            // Hapus hasil dari storage setelah ditampilkan
+            if (quizResult) removeFromStorage('quizResult');
+            if (gameResult) removeFromStorage('gameResult');
+        });
+    </script>
+
+    <style>
+        .result-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .result-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .result-header {
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-brown));
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .result-title {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .score-circle {
+            display: inline-flex;
+            align-items: baseline;
+            background: rgba(255,255,255,0.2);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .score-number {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .score-total {
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .result-body {
+            padding: 2rem;
+        }
+
+        .result-message {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+        }
+
+        .result-poor {
+            background: #ffebee;
+            color: #c62828;
+            border-left: 4px solid #c62828;
+        }
+
+        .result-average {
+            background: #fff3e0;
+            color: #ef6c00;
+            border-left: 4px solid #ef6c00;
+        }
+
+        .result-excellent {
+            background: #e8f5e8;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .result-details {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 500;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--primary-brown);
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .result-actions {
+                flex-direction: column;
+            }
+            
+            .score-circle {
+                padding: 0.8rem 1.5rem;
+            }
+            
+            .score-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Jawa Timur | Seberapa Jatim Koe?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/quiz.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🤷</span>
+                Seberapa Jatim Koe?
+            </a>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="quiz.html" class="nav-link active">Kuis Jatim</a></li>
+                <li><a href="guesspicture.html" class="nav-link">Tebak Gambar</a></li>
+                <li><a href="foodbot.html" class="nav-link">PangananBot</a></li>
+                <li><a href="informasi.html" class="nav-link">Informasi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="quiz-container">
+            <!-- Start Screen -->
+            <div id="startScreen" class="quiz-screen active">
+                <div class="start-content">
+                    <div class="quiz-header">
+                        <div class="quiz-badge">🎯 Kuis Interaktif</div>
+                        <h1 class="quiz-title">Kuis Jawa Timur</h1>
+                        <p class="quiz-description">
+                            Buktikan seberapa dalam pengetahuanmu tentang budaya, kuliner, dan tradisi Jawa Timur! 
+                            Jawab 15 soal pilihan ganda dan raih predikat "Arek Jatim Asli"!
+                        </p>
+                    </div>
+
+                    <div class="quiz-info-cards">
+                        <div class="info-card">
+                            <div class="info-icon">📚</div>
+                            <h3>50+ Soal</h3>
+                            <p>Total soal tentang Jawa Timur</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">🎯</div>
+                            <h3>15 Soal/Sesi</h3>
+                            <p>Diambil secara acak</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">⏱️</div>
+                            <h3>Multiple Choice</h3>
+                            <p>Pilihan A/B/C/D</p>
+                        </div>
+                    </div>
+
+                    <div class="quiz-actions">
+                        <button id="startQuiz" class="btn btn-primary btn-large">
+                            🚀 Mulai Kuis Sekarang!
+                        </button>
+                        <div class="quiz-tips">
+                            <p>💡 <strong>Tips:</strong> Baca soal dengan teliti, tidak ada batas waktu!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quizScreen" class="quiz-screen">
+                <div class="quiz-progress">
+                    <div class="progress-header">
+                        <div class="progress-text" id="progressText">Soal 1 dari 15</div>
+                        <div class="timer" id="timer">⏱️ Tidak Terbatas</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-header">
+                        <span class="question-number" id="questionNumber">Q1</span>
+                        <h2 class="question-text" id="questionText"></h2>
+                    </div>
+                    
+                    <div class="options-grid" id="optionsContainer">
+                        <!-- Opsi akan diisi oleh JavaScript -->
+                    </div>
+                </div>
+
+                <div class="quiz-navigation">
+                    <button id="nextQuestion" class="btn btn-primary" disabled>
+                        Lanjut ke Soal Berikutnya →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="resultsScreen" class="quiz-screen">
+                <div class="results-content">
+                    <div class="results-header">
+                        <div class="results-badge" id="resultsBadge">🎯</div>
+                        <h1 class="results-title" id="resultsTitle">Hasil Kuis</h1>
+                        <div class="score-circle">
+                            <span class="score-number" id="scoreNumber">0</span>
+                            <span class="score-total">/15</span>
+                        </div>
+                    </div>
+
+                    <div class="results-message" id="resultsMessage">
+                        <!-- Pesan hasil akan diisi oleh JavaScript -->
+                    </div>
+
+                    <div class="results-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Jawaban Benar:</span>
+                            <span class="detail-value" id="correctAnswers">0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Soal:</span>
+                            <span class="detail-value">15</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Persentase:</span>
+                            <span class="detail-value" id="percentage">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="results-actions">
+                        <button id="playAgain" class="btn btn-primary">
+                            🔄 Main Lagi
+                        </button>
+                        <a href="index.html" class="btn btn-outline">
+                            🏠 Kembali ke Beranda
+                        </a>
+                    </div>
+
+                    <div class="results-share">
+                        <p>Bagikan hasilmu!</p>
+                        <div class="share-buttons">
+                            <button class="btn btn-outline" onclick="bagikanHasil()">
+                                📤 Bagikan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-footer">
+                    <span class="logo-icon">🤷</span>
+                    Seberapa Jatim Koe?
+                </div>
+                <p class="footer-desc">
+                    Platform edukasi interaktif untuk melestarikan dan memperkenalkan kekayaan budaya Jawa Timur.
+                </p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navigasi</h4>
+                    <a href="index.html">Beranda</a>
+                    <a href="quiz.html">Kuis Jatim</a>
+                    <a href="guesspicture.html">Tebak Gambar</a>
+                    <a href="foodbot.html">PangananBot</a>
+                    <a href="informasi.html">Informasi</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Seberapa Jatim Koe? - AREK_AI MURID JATIM 2025</p>
+            <p>Dibuat dengan ❤️ oleh Wisanggeni Cahya Manggalar & Kharis Fatur Rohman - SMKN 1 DLANGGU</p>
+        </div>
+    </footer>
+
+ <!-- Di bagian scripts, perbaiki path -->
+<script src="assets/data/quiz-questions.js"></script>
+<script src="assets/js/utils.js"></script> <!-- Jika ada file utils -->
+<script src="assets/js/quiz.js"></script>
+
+
+</body>
+</html>

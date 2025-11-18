@@ -1,0 +1,467 @@
+/* FOODBOT STYLES - CLEAN & RESPONSIVE */
+.foodbot-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.foodbot-title {
+    font-size: 2.5rem;
+    color: var(--coklat-kayu);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.foodbot-subtitle {
+    font-size: 1.2rem;
+    color: var(--abu-gelap);
+    text-align: center;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+/* Layout */
+.foodbot-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    min-height: 600px;
+}
+
+/* Wizard Section */
+.wizard-section {
+    background: var(--putih);
+    padding: 2rem;
+    border-radius: var(--radius-besar);
+    box-shadow: var(--shadow-lembut);
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.wizard-section h3 {
+    color: var(--coklat-kayu);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.wizard-step {
+    display: none;
+}
+
+.wizard-step.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.wizard-step h4 {
+    color: var(--coklat-kayu);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.option-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.wizard-option {
+    background: var(--abu-sedang);
+    border: 2px solid transparent;
+    padding: 1.5rem 1rem;
+    border-radius: var(--radius-sedang);
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-cepat);
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 80px;
+    justify-content: center;
+}
+
+.wizard-option:hover {
+    background: var(--emas-jatim);
+    border-color: var(--coklat-kayu);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lembut);
+}
+
+.wizard-option.selected {
+    background: var(--coklat-kayu);
+    color: var(--putih);
+    border-color: var(--coklat-kayu);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.wizard-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+/* Chat Section */
+.chat-section {
+    background: var(--putih);
+    border-radius: var(--radius-besar);
+    box-shadow: var(--shadow-lembut);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 600px;
+}
+
+.chat-header {
+    background: var(--coklat-kayu);
+    color: var(--putih);
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.bot-status {
+    background: #4CAF50;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    max-height: 300px;
+    background: var(--abu-muda);
+    border-bottom: 1px solid var(--abu-sedang);
+}
+
+.message {
+    margin-bottom: 1rem;
+    animation: slideInUp 0.3s ease;
+}
+
+.message-content {
+    padding: 1rem;
+    border-radius: var(--radius-sedang);
+    background: var(--putih);
+    line-height: 1.5;
+    box-shadow: var(--shadow-lembut);
+    font-size: 0.95rem;
+}
+
+.bot-message .message-content {
+    background: var(--emas-jatim);
+    color: var(--coklat-kayu);
+    border-left: 4px solid var(--coklat-kayu);
+}
+
+/* Results Section */
+.recommendation-result {
+    padding: 1.5rem;
+    background: var(--putih);
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+/* Loading State */
+.loading-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--abu-gelap);
+}
+
+.loading-state .spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--coklat-kayu);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+.loading-subtitle {
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Results Grid */
+.results-container {
+    padding: 1rem 0;
+}
+
+.foods-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    margin-bottom: 2rem;
+}
+
+.food-card {
+    background: var(--putih);
+    border-radius: var(--radius-besar);
+    box-shadow: var(--shadow-lembut);
+    overflow: hidden;
+    transition: var(--transition-cepat);
+    animation: fadeInUp 0.6s ease;
+    border: 1px solid var(--abu-sedang);
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.food-header {
+    position: relative;
+    background: var(--gradient-emas);
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+}
+
+.food-image {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.food-match {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--coklat-kayu);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.food-body {
+    padding: 1.5rem;
+}
+
+.food-body h4 {
+    color: var(--coklat-kayu);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.food-location {
+    color: var(--biru-laut);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.food-description {
+    color: var(--abu-gelap);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.food-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.tag.level {
+    background: var(--biru-laut);
+    color: white;
+}
+
+.tag.flavor {
+    background: var(--emas-jatim);
+    color: var(--coklat-kayu);
+}
+
+.food-info {
+    border-top: 1px solid var(--abu-sedang);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.food-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.food-info strong {
+    color: var(--coklat-kayu);
+}
+
+/* No Results & Error */
+.no-results, .error-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--abu-gelap);
+}
+
+.no-results-icon, .error-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.no-results h4, .error-state h4 {
+    color: var(--coklat-kayu);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.no-results p, .error-state p {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.results-actions {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--abu-sedang);
+}
+
+/* Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .foodbot-layout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .wizard-section {
+        order: 2;
+    }
+    
+    .chat-section {
+        order: 1;
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .foodbot-container {
+        margin: 1rem auto;
+    }
+    
+    .foodbot-title {
+        font-size: 2rem;
+    }
+    
+    .foodbot-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .option-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .wizard-option {
+        padding: 1rem;
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+        min-height: 60px;
+    }
+    
+    .wizard-section,
+    .chat-section {
+        padding: 1.5rem;
+    }
+    
+    .wizard-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .foodbot-title {
+        font-size: 1.8rem;
+    }
+    
+    .wizard-section,
+    .chat-section {
+        padding: 1rem;
+    }
+    
+    .chat-messages {
+        padding: 1rem;
+        max-height: 250px;
+    }
+    
+    .recommendation-result {
+        padding: 1rem;
+    }
+    
+    .food-body {
+        padding: 1rem;
+    }
+    
+    .food-header {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PangananBot | Seberapa Jatim Koe?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/foodbot.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🤷</span>
+                Seberapa Jatim Koe?
+            </a>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="quiz.html" class="nav-link">Kuis Jatim</a></li>
+                <li><a href="guesspicture.html" class="nav-link">Tebak Gambar</a></li>
+                <li><a href="foodbot.html" class="nav-link active">PangananBot</a></li>
+                <li><a href="informasi.html" class="nav-link">Informasi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div id="foodbot-container" class="foodbot-container">
+            <h1 class="foodbot-title">PangananBot</h1>
+            <p class="foodbot-subtitle">Rekomendasi Kuliner Khas Jawa Timur</p>
+
+            <div class="foodbot-layout">
+                <!-- Wizard Section -->
+                <div class="wizard-section">
+                    <h3>Pilih Preferensi</h3>
+                    
+                    <!-- Step 1: Rasa -->
+                    <div class="wizard-step active" id="step1">
+                        <h4>👌Rasa Favorit</h4>
+                        <div class="option-grid">
+                            <button class="wizard-option" data-value="manis">
+                                🍬 Manis
+                            </button>
+                            <button class="wizard-option" data-value="asin">
+                                🧂 Asin
+                            </button>
+                            <button class="wizard-option" data-value="pedas">
+                                🌶️ Pedas
+                            </button>
+                            <button class="wizard-option" data-value="gurih">
+                                🍲 Gurih
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Tingkat -->
+                    <div class="wizard-step" id="step2">
+                        <h4>😋Jenis Makanan</h4>
+                        <div class="option-grid">
+                            <button class="wizard-option" data-value="ringan">
+                                🥗 Cemilan / Makanan Ringan
+                            </button>
+                            <button class="wizard-option" data-value="berat">
+                                🍛 Makanan Berat
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="wizard-actions">
+                        <button id="prevStep" class="btn btn-outline" disabled>
+                            ← Kembali
+                        </button>
+                        <button id="nextStep" class="btn btn-primary" disabled>
+                            Lanjut →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat Section -->
+                <div class="chat-section">
+                    <div class="chat-header">
+                        <h3>🤖 PangananBot</h3>
+                        <span class="bot-status">🟢 Online</span>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Messages will appear here -->
+                    </div>
+                    
+                    <div class="recommendation-result" id="recommendationResult">
+                        <!-- Results will appear here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-footer">
+                    <span class="logo-icon">🤷</span>
+                    Seberapa Jatim Koe?
+                </div>
+                <p class="footer-desc">
+                    Platform edukasi interaktif untuk melestarikan dan memperkenalkan kekayaan budaya Jawa Timur kepada generasi muda.
+                </p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navigasi</h4>
+                    <a href="index.html">Beranda</a>
+                    <a href="quiz.html">Kuis Jatim</a>
+                    <a href="guesspicture.html">Tebak Gambar</a>
+                    <a href="foodbot.html">PangananBot</a>
+                    <a href="informasi.html">Informasi</a>
+                </div>
+                
+                <div class="link-group">
+                    <h4>Proyek</h4>
+                    <a href="informasi.html">Tentang Kami</a>
+                    <a href="informasi.html">Tim Pengembang</a>
+                    <a href="informasi.html">Teknologi</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Seberapa Jatim Koe? - AREK_AI MURID JATIM 2025</p>
+            <p>Dibuat dengan ❤️ oleh Wisanggeni Cahya Manggalar & Kharis Fatur Rohman - SMKN 1 DLANGGU</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/data/foods.js"></script>
+    <script src="assets/js/foodbot.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle')?.addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const isClickInsideNav = event.target.closest('.nav-container');
+            
+            if (!isClickInsideNav && navMenu?.classList.contains('active')) {
+                menuToggle?.classList.remove('active');
+                navMenu?.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

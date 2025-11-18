@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seberapa Jatim Koe?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🤷</span>
+                Seberapa Jatim Koe?
+            </a>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Beranda</a></li>
+                <li><a href="quiz.html" class="nav-link">Kuis Jatim</a></li>
+                <li><a href="guesspicture.html" class="nav-link">Tebak Gambar</a></li>
+                <li><a href="foodbot.html" class="nav-link">PangananBot</a></li>
+                <li><a href="informasi.html" class="nav-link">Informasi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge">#JATIMPRIDE</div>
+                <h1 class="hero-title">
+                    Seberapa 
+                    <span class="highlight-jatim">Jatim Koe</span> 
+                    Rek?
+                </h1>
+                <p class="hero-subtitle">
+                    Jelajahi kekayaan budaya, kuliner, dan keindahan Jawa Timur melalui pengalaman interaktif yang seru dan mendidik. Buktikan seberapa dalam pengetahuanmu tentang Bumi Arek!
+                </p>
+                <div class="hero-actions">
+                    <button id="mulaiSaiki" class="btn btn-primary btn-large btn-glow">
+                        🚀 Ayo, Mulai Saiki!
+                    </button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Soal Kuis</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Gambar Budaya</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Kuliner Khas</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <!-- Card 1: Budaya Jatim dengan background gambar -->
+                <div class="hero-card card-hover">
+                    <div class="card-pattern"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🎭</div>
+                        <h3>Budaya Jatim</h3>
+                        <p>Dari Reog hingga Ludruk</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Kuliner Khas dengan background gambar -->
+                <div class="hero-card card-hover">
+                    <div class="card-pattern"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🍜</div>
+                        <h3>Kuliner Khas</h3>
+                        <p>Rawon sampai Rujak Cingur</p>
+                    </div>
+                </div>
+                
+
+                <!-- Card 3: Wisata Alam dengan background gambar --> 
+                <div class="hero-card card-hover">
+                    <div class="card-pattern"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🏔️</div>
+                        <h3>Wisata Alam</h3>
+                        <p>Bromo hingga Kawah Ijen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Features Section -->
+        <section id="fitur" class="features-section">
+            <div class="section-header">
+                <h2 class="section-title">Fitur Utama</h2>
+                <p class="section-subtitle">Temukan berbagai cara seru untuk mengenal Jawa Timur lebih dalam</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card card-hover">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Kuis Jawa Timur</h3>
+                    <p>Uji pengetahuanmu dengan 50+ soal tentang budaya, sejarah, dan tradisi Jawa Timur. Dapatkan predikat "Arek Jatim Asli"!</p>
+                    <div class="feature-meta">
+                        <span>🕒 15 soal/sesi</span>
+                        <span>🎯 Multiple choice</span>
+                    </div>
+                    <a href="quiz.html" class="btn btn-outline">Mulai Kuis</a>
+                </div>
+
+                <div class="feature-card card-hover">
+                    <div class="feature-icon">🖼️</div>
+                    <h3>Tebak Gambar</h3>
+                    <p>Kenali landmark, kesenian, dan kuliner khas Jawa Timur melalui permainan tebak gambar yang menantang.</p>
+                    <div class="feature-meta">
+                        <span>🖼️ 25+ gambar</span>
+                        <span>🏆 Sistem scoring</span>
+                    </div>
+                    <a href="guesspicture.html" class="btn btn-outline">Tebak Gambar</a>
+                </div>
+
+                <div class="feature-card card-hover">
+                    <div class="feature-icon">🤖</div>
+                    <h3>PangananBot</h3>
+                    <p>Dapatkan rekomendasi kuliner khas Jawa Timur berdasarkan selera dan preferensimu. Dengan gaya bahasa Arek yang khas!</p>
+                    <div class="feature-meta">
+                        <span>🤖 Chatbot interaktif</span>
+                        <span>🍽️ Rekomendasi personal</span>
+                    </div>
+                    <a href="foodbot.html" class="btn btn-outline">Tanya Bot</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Kenapa Harus Jawa Timur?</h2>
+                    <p>Jawa Timur bukan sekadar provinsi, tapi <strong>warisan budaya</strong> yang kaya akan sejarah, kuliner lezat, dan keragaman tradisi. Dari <strong>Reog Ponorogo</strong> yang mendunia hingga <strong>Rawon</strong> yang menggugah selera.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <span class="feature-dot"></span>
+                            <span>Kesenian tradisional yang mendunia</span>
+                        </div>
+                        <div class="about-feature">
+                            <span class="feature-dot"></span>
+                            <span>Kuliner dengan cita rasa autentik</span>
+                        </div>
+                        <div class="about-feature">
+                            <span class="feature-dot"></span>
+                            <span>Landmark alam yang memukau</span>
+                        </div>
+                    </div>
+                    
+                    <a href="informasi.html" class="btn btn-primary">Pelajari Lebih Lanjut</a>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="culture-badge card-hover">
+                        <div class="badge-icon">🎭</div>
+                        <div class="badge-text">Budaya Kaya</div>
+                    </div>
+                    <div class="culture-badge card-hover">
+                        <div class="badge-icon">🍚</div>
+                        <div class="badge-text">Kuliner Legendaris</div>
+                    </div>
+                    <div class="culture-badge card-hover">
+                        <div class="badge-icon">🌋</div>
+                        <div class="badge-text">Alam Eksotis</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-footer">
+                    <span class="logo-icon">🤷</span>
+                    Seberapa Jatim Koe?
+                </div>
+                <p class="footer-desc">
+                    Platform edukasi interaktif untuk melestarikan dan memperkenalkan kekayaan budaya Jawa Timur kepada generasi muda.
+                </p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navigasi</h4>
+                    <a href="index.html">Beranda</a>
+                    <a href="quiz.html">Kuis Jatim</a>
+                    <a href="guesspicture.html">Tebak Gambar</a>
+                    <a href="foodbot.html">PangananBot</a>
+                    <a href="informasi.html">Informasi</a>
+                </div>
+                
+                <div class="link-group">
+                    <h4>Proyek</h4>
+                    <a href="informasi.html">Tentang Kami</a>
+                    <a href="informasi.html">Tim Pengembang</a>
+                    <a href="informasi.html">Teknologi</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Seberapa Jatim Koe? - AREK_AI MURID JATIM 2025</p>
+            <p>Dibuat dengan ❤️ oleh Wisanggeni Cahya Manggalar & Kharis Fatur Rohman - SMKN 1 DLANGGU</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        // Scroll smooth ke fitur section
+        document.getElementById("mulaiSaiki").addEventListener("click", function() {
+            document.getElementById("fitur").scrollIntoView({ 
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+
+        // Mobile menu toggle
+        document.getElementById("menuToggle").addEventListener("click", function() {
+            const navMenu = document.getElementById("navMenu");
+            this.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", function(event) {
+            const menuToggle = document.getElementById("menuToggle");
+            const navMenu = document.getElementById("navMenu");
+            const isClickInsideNav = event.target.closest(".nav-container");
+            
+            if (!isClickInsideNav && navMenu.classList.contains("active")) {
+                menuToggle.classList.remove("active");
+                navMenu.classList.remove("active");
+            }
+        });
+
+        // Add animation classes on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements to animate
+            document.querySelectorAll('.hero-card, .feature-card, .culture-badge').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+    
+</body>
+</html>
